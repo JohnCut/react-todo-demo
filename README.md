@@ -1,3 +1,7 @@
+# React To-Do Demo
+
+<h3>A to-do app demonstration built with React JS.<h3/>
+
 ## What I Learned
 
 - React's general structure
