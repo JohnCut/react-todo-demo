@@ -6,6 +6,7 @@
 - Data flow between components
 - Prop drilling
 - Array mapping
+- Prop type validation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
