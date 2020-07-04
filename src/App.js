@@ -36,11 +36,16 @@ class App extends Component {
     })
   }
 
+  // checks if the id matches the current state and deletes(hides through filterring) it
+  delTodo = (id) => {
+    this.setState({ todos: [...this.state.todos.filter(todo => todo.id != id)] });
+  }
+
   render() {
     return (
       <div className="App">
         {/* it passes the state to Todos comp as 'todos' */}
-        <Todos todos={this.state.todos} markComplete={this.markComplete} />
+        <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
       </div>
     )
   }
