@@ -24,15 +24,23 @@ class App extends Component {
     ]
   }
 
-  markComplete = () => {
-    console.log('Heydo hey hey')
+  // checks if the id matches the current state and changed 'completed' state to opposite value
+  markComplete = (id) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed
+        }
+        return todo;
+      })
+    })
   }
 
   render() {
     return (
       <div className="App">
         {/* it passes the state to Todos comp as 'todos' */}
-        <Todos todos={this.state.todos} markComplete={this.markComplete}/>
+        <Todos todos={this.state.todos} markComplete={this.markComplete} />
       </div>
     )
   }
