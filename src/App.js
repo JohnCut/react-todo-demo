@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import Header from './components/layout/Header'
 import Todos from './components/comps/Todos'
+import AddTodo from './components/comps/AddTodo'
 import './App.css'
 
 class App extends Component {
@@ -38,14 +40,19 @@ class App extends Component {
 
   // checks if the id matches the current state and deletes(hides through filterring) it
   delTodo = (id) => {
+    // ... is the spread operator
     this.setState({ todos: [...this.state.todos.filter(todo => todo.id != id)] });
   }
 
   render() {
     return (
       <div className="App">
-        {/* it passes the state to Todos comp as 'todos' */}
-        <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
+        <div className="container">
+          <Header />
+          <AddTodo />
+          {/* it passes the state to Todos comp as 'todos' */}
+          <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
+        </div>
       </div>
     )
   }
