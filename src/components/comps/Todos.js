@@ -7,7 +7,7 @@ class Todos extends Component {
         // loops through each item of the todos prop (foreach like)
         return this.props.todos.map((todo) => (
             // displays TodoItem and passes id as key and current todo as todo to TodoItem
-            <TodoItem key={todo.id} todo={todo} />
+            <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete}/>
         ))
     }
 }

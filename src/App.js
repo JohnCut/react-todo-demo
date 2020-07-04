@@ -24,11 +24,15 @@ class App extends Component {
     ]
   }
 
+  markComplete = () => {
+    console.log('Heydo hey hey')
+  }
+
   render() {
     return (
       <div className="App">
         {/* it passes the state to Todos comp as 'todos' */}
-        <Todos todos={this.state.todos} />
+        <Todos todos={this.state.todos} markComplete={this.markComplete}/>
       </div>
     )
   }
