@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from './components/layout/Header'
 import Todos from './components/comps/Todos'
 import AddTodo from './components/comps/AddTodo'
+import { v4 as uuidv4 } from 'uuid'
 import './App.css'
 
 class App extends Component {
@@ -9,17 +10,17 @@ class App extends Component {
   state = {
     todos: [
       {
-        id: 1,
+        id: uuidv4(),
         title: 'Cook dinner',
         completed: false
       },
       {
-        id: 2,
+        id: uuidv4(),
         title: 'Do chores',
         completed: false
       },
       {
-        id: 3,
+        id: uuidv4(),
         title: 'Read 100 pages',
         completed: false
       }
@@ -41,7 +42,17 @@ class App extends Component {
   // checks if the id matches the current state and deletes(hides through filterring) it
   delTodo = (id) => {
     // ... is the spread operator
-    this.setState({ todos: [...this.state.todos.filter(todo => todo.id != id)] });
+    this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
+  }
+
+  addTodo = (title) => {
+    const newTodo = {
+      id: uuidv4(),
+      // (title: title) if name and value is the same, just write it once
+      title,
+      completed: false
+    }
+    this.setState({ todos: [...this.state.todos, newTodo] })
   }
 
   render() {
@@ -49,7 +60,7 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <Header />
-          <AddTodo />
+          <AddTodo addTodo={this.addTodo}/>
           {/* it passes the state to Todos comp as 'todos' */}
           <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
         </div>
