@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './components/layout/Header'
 import Todos from './components/comps/Todos'
 import AddTodo from './components/comps/AddTodo'
+import About from './components/pages/About'
 import { v4 as uuidv4 } from 'uuid'
 import './App.css'
 
@@ -47,6 +49,7 @@ class App extends Component {
 
   addTodo = (title) => {
     const newTodo = {
+      // it gives todo item a random id (using uuid package)
       id: uuidv4(),
       // (title: title) if name and value is the same, just write it once
       title,
@@ -57,14 +60,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="container">
-          <Header />
-          <AddTodo addTodo={this.addTodo}/>
-          {/* it passes the state to Todos comp as 'todos' */}
-          <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
+      <Router>
+        <div className="App">
+          <div className="container">
+            <Header />
+            {/* Merges AddTodo and Todos as one component */}
+            <Route exact path="/" render={props => (
+              <React.Fragment>
+                <AddTodo addTodo={this.addTodo} />
+                {/* it passes the state to Todos comp as 'todos' */}
+                <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
+              </React.Fragment>
+            )} />
+            <Route path='/about' component={About} />
+          </div>
         </div>
-      </div>
+      </Router>
     )
   }
 }
