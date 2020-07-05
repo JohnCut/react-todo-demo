@@ -12,9 +12,11 @@ class Todos extends Component {
     }
 }
 
-// indicates that todos prop should have an array
+// indicates what types props shoould be
 Todos.propTypes = {
-    todos: PropTypes.array.isRequired
+    todos: PropTypes.array.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    delTodo: PropTypes.func.isRequired,
 }
 
 export default Todos
