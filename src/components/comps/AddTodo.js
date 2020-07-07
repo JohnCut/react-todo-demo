@@ -5,7 +5,7 @@ export class AddTodo extends Component {
     state = {
         title: ''
     }
-
+    
     onSubmit = (e) => {
         // preventing submitting to the actual file
         e.preventDefault()

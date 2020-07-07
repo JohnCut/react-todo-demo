@@ -14,10 +14,10 @@ class App extends Component {
     todos: []
   }
 
-  componentDidMount() {
+  /* componentDidMount() {
     axios.get('http://jsonplaceholder.typicode.com/todos?_limit=10')
       .then(res => this.setState({ todos: res.data }))
-  }
+  } */
 
   // checks if the id matches the current state and changed 'completed' state to opposite value
   markComplete = (id) => {
