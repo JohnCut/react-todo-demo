@@ -9,6 +9,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
+  background-color:#1D3557;
 }
 
 /* resets default styling values */
@@ -18,7 +19,7 @@ a {
 }
 
 .container {
-  padding: 0 1rem;
+  padding: 0 10rem;
 }
 
 .btn {

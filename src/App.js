@@ -34,18 +34,18 @@ class App extends Component {
   // checks if the id matches the current state and deletes(hides through filterring) it
   delTodo = (id) => {
     // ... is the spread operator
-    axios.delete('http://jsonplaceholder.typicode.com/todos/${id}')
-      .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] })
-      )
+    this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
   }
 
-  // adds todo item to the server and ui later
   addTodo = (title) => {
-    axios.post('http://jsonplaceholder.typicode.com/todos', {
+    const newTodo = {
+      // it gives todo item a random id (using uuid package)
+      id: uuidv4(),
       // (title: title) if name and value is the same, just write it once
       title,
       completed: false
-    }).then(res => this.setState({ todos: [...this.state.todos, res.data] }))
+    }
+    this.setState({ todos: [...this.state.todos, newTodo] })
   }
 
   render() {
