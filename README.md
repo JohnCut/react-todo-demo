@@ -11,6 +11,10 @@
 - Prop drilling
 - Array mapping
 - Prop type validation
+- Adding inputs to app
+- CRUD operations with Axios
+- Routing pages
+- Ways for styling in React.js
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
