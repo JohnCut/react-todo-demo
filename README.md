@@ -1,6 +1,6 @@
 # React To-Do Demo
 
-<h3>A to-do app demonstration built with React JS.<h3/>
+<h3>A to-do app demonstration built with React JS and Giphy API.<h3/>
 
 ## What I Learned
 
@@ -15,6 +15,7 @@
 - CRUD operations with Axios
 - Routing pages
 - Ways for styling in React.js
+- Giphy API integrations
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
